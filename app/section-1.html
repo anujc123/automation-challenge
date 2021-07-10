@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AlayaCare - Cypress interview handbook">
+  <meta name="author" content="AlayaCare">
+  <meta name="copyright" content="AlayaCare">
+
+  <title>AlayaCare - Cypress interview handbook</title>
+
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/vendor/fira.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">AlayaCare</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Start here!</a></li>
+          <li class="active"><a href="/section-1">Section 1</a></li>
+          <li><a href="/section-2">Section 2</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <div class="container">
+      <h1>DOM interactions</h1>
+      <p>In this section, you will demonstrate your ability to interact with the DOM.
+      </p>
+    </div>
+  </div>
+  <div class="container content-container">
+    <div id="dom-commands">
+      <div class="row">
+        <div class="row">
+
+          <div class="col-xs-12">
+            <h4>DOM: Tables 🗓</h4>
+            <p>The AlayaCare product line makes heavy use of tables to aggregate data in a digestible manner.<br>
+            Using cypress, assert that the data in the table is correct and that the table itself can show up.</p>
+            <div class="well" style="margin-top: 0; margin-bottom: 10px;">
+              <p><strong>Problem steps:</strong></p>
+              <ol>
+                <li>Assert that the table is not visible</li>
+                <li>After clicking the "Show table" button, assert the table is visible</li>
+                <li>Assert that the table is 5 columns wide</li>
+                <li>Assert that the table is 10 rows long, excluding the first (header) row</li>
+                <li>Assert that <strong>at least 5</strong> entries have the role "user"</li>
+                <li>Assert there are <strong>exactly 3 people</strong> older than 60 years old</li>
+              </ol>
+            </div>
+
+            <button id="table-toggle-button" data-test="table-toggle-button" class="table-toggle-button">Show
+              table</button>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="question-element-container">
+              <table id="alaya-table" data-test="user-table">
+                <tr class="table-header" data-test="table-header">
+                  <th>ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>D.O.B</th>
+                  <th>Role</th>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <th>John</th>
+                  <th>Doe</th>
+                  <th>1/1/1995</th>
+                  <th>admin</th>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <th>Jane</th>
+                  <th>Doe</th>
+                  <th>1/17/1996</th>
+                  <th>coordinator</th>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <th>John</th>
+                  <th>Smith</th>
+                  <th>5/5/1989</th>
+                  <th>user</th>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <th>Tux</th>
+                  <th>ThePenguin</th>
+                  <th>8/2/1956</th>
+                  <th>user</th>
+                </tr>
+                <tr>
+                  <th>5</th>
+                  <th>Alaya</th>
+                  <th>Care</th>
+                  <th>2/14/1978</th>
+                  <th>user</th>
+                </tr>
+                <tr>
+                  <th>6</th>
+                  <th>Dennis</th>
+                  <th>Ritchie</th>
+                  <th>5/25/1952</th>
+                  <th>coordinator</th>
+                </tr>
+                <tr>
+                  <th>7</th>
+                  <th>Example</th>
+                  <th>LastName</th>
+                  <th>9/29/1994</th>
+                  <th>user</th>
+                </tr>
+                <tr>
+                  <th>8</th>
+                  <th>Caregiver</th>
+                  <th>Mann</th>
+                  <th>5/17/2001</th>
+                  <th>user</th>
+                </tr>
+                <tr>
+                  <th>9</th>
+                  <th>Caregiver</th>
+                  <th>Womann</th>
+                  <th>4/21/1955</th>
+                  <th>coordinator</th>
+                </tr>
+                <tr>
+                  <th>10</th>
+                  <th>DOM</th>
+                  <th>Challenge</th>
+                  <th>12/24/1981</th>
+                  <th>user</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <h4 id="arch">DOM: Forms 📝</h4>
+            <p>Forms are heavily used to submit user info, and users should be able to fill them out without stress.<br>
+            Using Cypress, assert that the form can be filled out and submitted.</p>
+            <div class="well" style="margin-top: 0; margin-bottom: 10px;">
+              <p><strong>Problem steps:</strong></p>
+              <ol>
+                <li>Assert that the form is not visible</li>
+                <li>After clicking the "Show form" button, assert that the form is visible</li>
+                <li>Fill in the "Name" and "Age" inputs, and assert that both inputs are filled</li>
+                <li>Select "Female" from the select option, and assert that the value is "female"</li>
+                <li>Tick the "Nurse" checkbox and assert that the value "nurse" is true</li>
+                <li>Click on the "Submit" button and assert that there is an alert window showing with the text "<strong>Form submitted!</strong>"</li>
+              </ol>
+            </div>
+            <button id="form-toggle-button" data-test="form-toggle-button" class="form-toggle-button">Show Form</button>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="question-element-container">
+              <form id="alaya-form" data-test="signup-form">
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" name="fullName" data-test="full-name-input"/><br>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" data-test="age-input"/><br>
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" data-test="gender-select">
+                  <option value="">-- Select your Gender --</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="nbin">Non-binary</option>
+                  <option value="other">Other</option>
+                  <option value="prefns">Prefer not to say</option>
+                </select>
+                <label for="nurse">Nurse?</label>
+                <input type="checkbox" id="nurse" name="nurse" data-test="nurse-input"/><br>
+                <button id="submit" data-test="submit-btn">Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/highlight.pack.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="/assets/js/section-1/index.js"></script>
+</body>
+
+</html>
